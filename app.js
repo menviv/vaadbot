@@ -168,7 +168,7 @@ bot.dialog('/', [
     },
     function (session, results) {
         session.userData.profile = results.response;
-        session.send('היוש %(name)s', session.userData.profile);
+        session.send('היוש %(name1)s', session.userData.profile);
         //session.beginDialog('/location');
         session.beginDialog("/location", { location: "room0" });
     }
@@ -197,7 +197,7 @@ bot.dialog('/', [
 bot.dialog('/ensureProfile', [
     function (session, args, next) {
         session.dialogData.profile = args || {};
-        if (!session.dialogData.profile.name) {
+        if (!session.dialogData.profile.name1) {
             //builder.Prompts.text(session, "What's your name?");
             builder.Prompts.text(session, 'קודם כל שלום. לי קוראים בוטוש ולך?');
         } else {
@@ -206,7 +206,7 @@ bot.dialog('/ensureProfile', [
     },
     function (session, results, next) {
         if (results.response) {
-            session.dialogData.profile.name = results.response;
+            session.dialogData.profile.name1 = results.response;
         }
         if (!session.dialogData.profile.age) {
             //builder.Prompts.text(session, "What company do you work for?");
