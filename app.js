@@ -169,7 +169,6 @@ bot.dialog('/', [
     function (session, results) {
         session.userData.profile = results.response;
         session.send('היוש %(name1)s', session.userData.profile);
-        //session.beginDialog('/location');
         session.beginDialog("/location", { location: "room0" });
     }
 ]);
